@@ -1,4 +1,6 @@
-SELECT *
+SELECT 
+     dp.*,
+     dc.media_cost
 FROM 
      data_performance dp
 JOIN 
