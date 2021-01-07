@@ -1,0 +1,30 @@
+SELECT *
+FROM 
+     data_performance dp
+JOIN 
+     data_cost dc
+     on dp.placement_id = dc.placement_id
+     and dp.date = dc.date;
+
+SELECT
+        site,
+        date_format(date, "%m") as month,
+        impressions,
+        clicks,
+        conversions,
+        video_plays,
+        video_completions
+FROM
+        data_performance
+GROUP BY 
+        1,2
+ORDER BY 
+        impressions DESC;
+
+
+SELECT
+      site,
+      count(distinct placement) as num_placements
+FROM
+      data_performance
+GROUP BY 1;
