@@ -1,0 +1,15 @@
+import pandas as pd
+df = pd.read_csv("data_performance.csv")
+df[['Region','City','Device','Media_Type']] = df["Placement"].str.split("_", expand = True)
+
+df.replace(to_replace=["EAS","MTN","SOU"
+                       ,"SLC","MCA","HRB","PIT","WIL"
+                       ,"CRP","MOB","TAB"
+                       ,"VID","DSP","AUD"]
+           ,value =["East","Mountain","South"
+                     ,"Salt Lake City","McAllen","Harrisburg","Pittsburg", "Wilkes Barre"
+                     ,"Cross Platform", "Mobile", "Table"
+                     ,"Video", "Display", "Audio"])
+
+
+
